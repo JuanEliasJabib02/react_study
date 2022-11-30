@@ -1,0 +1,15 @@
+What is a HOOK?
+
+What is a State?
+
+Wich is the life cycle of a components?
+
+
+How work the useState?
+
+
+What is the difference between a tradicional variable and 
+the use state?
+
+That the useState render again de component and update the data on the web
+and the tradicional variable dont do that.
