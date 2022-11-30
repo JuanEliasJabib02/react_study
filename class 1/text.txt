@@ -1,0 +1,10 @@
+Whats the difference between framework and libraries?
+
+
+
+npm vite@lastest  --> For create a react project
+
+
+what is jsx? 
+
+Is Xml merged with javascript .
