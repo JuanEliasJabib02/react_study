@@ -1,0 +1,47 @@
+.App{
+  width:100%;
+  min-height:100vh;
+  display:flex;
+  justify-content: center;
+  align-items: center;;
+}
+
+.quote-box{
+  border-radius:1rem;
+  background-color: white;
+  padding:4rem;
+}
+
+.quote-box_quote{
+  font-size:2rem;
+}
+
+
+.quote-box_author{
+  font-size:2rem;
+  text-align: end;
+  
+}
+
+.quote-box_icon{
+  font-size:4rem;
+  float:left;
+  padding-right:1rem;
+}
+
+.quote-box_button{
+  display: block;
+  margin-left: auto;
+  width: 4rem;
+  aspect-ratio:1;
+  border-radius: 50%;
+  margin-top:1rem;
+  cursor:pointer;
+  box-shadow: 0 0 1rem #0001;
+}
+
+.quote-box_button:hover{
+  box-shadow: 0 0 1rem #0005;
+  transform: scale(1.5);
+  transition: box-shadow 100ms ease, transform 100ms ease;
+}
