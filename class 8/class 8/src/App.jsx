@@ -2,6 +2,7 @@ import { useState } from 'react';
 import axios from "axios";
 import './App.css';
 import { useEffect } from 'react';
+import Country from './components/Country';
 
 function App() {
 
@@ -9,29 +10,41 @@ function App() {
 
 	const [countries, setCountries] = useState()
 
+	const [inputText, setInputText] = useState("spa")
 
-	/** DEPLOY THE INFO IN A DYNAMIC WAY
-	 * 
-	 * -FLAG
-	 * -COUNTRY NAME
-	 * -CAPITAL
-	 */
+
+
 
 	useEffect(() => {
-		const URL = "https://restcountries.com/v3.1/lang/spa"
+		const URL = `https://restcountries.com/v3.1/lang/${inputText}`
 
 		axios.get(URL)
 			.then(res => setCountries(res.data))
 			.catch(err => console.log(err))
-	},[])
+	},[inputText])
 
-	console.log(countries)
 
+	const handleSubmit = (e) => {
+		e.preventDefault()
+		setInputText(e.target.input_text.value)
+	}
 
 	
 	return (
 		<div className='App'>
-			<h1>List and Keys 2</h1>
+
+			<form onSubmit={handleSubmit}>
+				<input type="text" name="input_text" id="input_text" />
+				<button>search</button>
+			</form>
+			{
+				countries?.map(country => (
+					< Country
+						country={country}
+						key={country.population}
+					/>
+				))
+			}
 		</div>
 	) 
 }
