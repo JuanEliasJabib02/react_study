@@ -4,6 +4,7 @@ import './App.css'
 import { useEffect } from 'react'
 import axios from "axios"
 import CarInfo from './components/CarInfo'
+import FormCar from './components/FormCar'
 
 function App() {
 
@@ -20,16 +21,16 @@ function App() {
     getAllCars()
   },[])
 
-  const createNewCar = () => {
+  const createNewCar = (data) => {
     const URL = "http://cars-crud.academlo.tech/cars/"
 
-    const data = {
+ /*    const data = {
       brand: "shaman",
       model: "yellow",
       color: "red",
       year: 2022,
       price: "150000",
-    }
+    } */
 
     axios.post(URL, data)
       .then(res => {
@@ -46,9 +47,11 @@ function App() {
         {
           /* El () en AF is a implicit return */
           cars?.map(car => (
-            < CarInfo key={car.id} car={car} />
+            < CarInfo key={car.id} car={car} getAllCars={getAllCars} />
           ))
         }
+
+        <FormCar createNewCar={createNewCar} />
       </div>
     </div>
   )

@@ -5,3 +5,31 @@ button {
   color: white;
 
 }
+
+.delete {
+  background-color: red;
+}
+
+.card {
+  border: 0.3rem solid black;
+}
+
+.update {
+  background-color: yellow;
+}
+
+.form-crud {
+  border: 0.5rem solid yellow;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-crud>label {
+  padding: 1rem;
+  justify-items: center;
+}
+
+.form-crud>input {
+  width: 15rem;
+
+}
