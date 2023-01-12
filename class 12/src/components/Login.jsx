@@ -1,8 +1,12 @@
 import React from 'react'
 
-const Login = () => {
+const Login = ({setIsLogged}) => {
+  
   return (
-    <div>Login</div>
+    <div>
+      <button onClick={() => setIsLogged(true)}>Login</button>
+    </div>
+   
   )
 }
 

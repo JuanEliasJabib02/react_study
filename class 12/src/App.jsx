@@ -10,28 +10,28 @@ import ProtectedRoute from "./components/ProtectedRoute"
 
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [isLogged, setIsLogged] = useState(false)
 
   return (
     <div className="App">
       <header>Im the header
         <nav>
           <ul>
-          <li><Link to="/">Home</Link></li>
+{/*           <li><Link to="/">Home</Link></li>
             <li><Link to="/about">About</Link></li>
 
             <h2>Anidate Routes</h2>
             <li><Link to="/contact">Contact</Link></li>
-            <li><Link to="/location/1">Location</Link></li>
+            <li><Link to="/location/1">Location</Link></li> */}
             <h2>Protected Routes</h2>
-            <li><Link to="login">Login</Link></li>
+            <li><Link to="/">Login</Link></li>
             <li><Link to="product">Product</Link></li>
-            <li><Link to="login">Orders</Link></li>
+            <li><Link to="/orders">Orders</Link></li>
           </ul>
         </nav>
       </header>
       < Routes >
-        < Route path="/" element={<Home />} />
+        < Route path="/home" element={<Home />} />
         < Route path="/about" element={<h1>About</h1>} />
     
 
@@ -42,13 +42,16 @@ function App() {
           < Route path="/contact" element={<h1>Contact</h1>} />
         </Route>
 
-        {/* Protected Routes */}
-        < Route path="/login" element={< Login />}></Route>
-        
-        < Route element={ProtectedRoute}>
+        < Route path="/" element={
+          < Login
+          setIsLogged={setIsLogged}
+          />
+        } />
 
-          < Route path="/product" element={<h2>Product</h2> } />
-          < Route path="/orders" element={<h2>Orders</h2> } />
+        < Route path="/blocked" element={<h1>Blocked</h1>} />       {/* Protected Routes */}
+        < Route element={<ProtectedRoute isLogged={isLogged } />} >
+          < Route path="/product" element={<h1>Product</h1> } />
+          < Route path="/orders" element={<h1>Orders</h1> } />
         </Route>
       </Routes>
 
