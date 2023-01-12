@@ -3,6 +3,8 @@ import {Route, Routes ,Link} from "react-router-dom"
 import reactLogo from './assets/react.svg'
 import './App.css'
 import Home from './components/Home'
+import Location from './components/Location'
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -22,6 +24,7 @@ function App() {
         < Route path="/" element={<Home />} />
         < Route path="/about" element={<h1>About</h1>} />
         < Route path="/contact" element={<h1>Contact</h1>} />
+        < Route path="/location/:id" element={< Location/>} />
       </Routes>
 
       <footer> Im the footer</footer>
