@@ -7,7 +7,7 @@ const Location = () => {
 
   const [location, setLocation] = useState()
 
-  const { id } = useParams()
+  const { id } = useParams() /* Use param work for catch params */
 
   console.log(id)
   useEffect(() => {
