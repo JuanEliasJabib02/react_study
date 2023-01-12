@@ -5,6 +5,8 @@ import './App.css'
 import Home from './components/Home'
 import Location from './components/Location'
 import MainLayout from './components/MainLayout'
+import Login from './components/Login'
+import ProtectedRoute from "./components/ProtectedRoute"
 
 
 function App() {
@@ -17,8 +19,14 @@ function App() {
           <ul>
           <li><Link to="/">Home</Link></li>
             <li><Link to="/about">About</Link></li>
+
+            <h2>Anidate Routes</h2>
             <li><Link to="/contact">Contact</Link></li>
-            <li><Link to="/location/1">Locaton</Link></li>
+            <li><Link to="/location/1">Location</Link></li>
+            <h2>Protected Routes</h2>
+            <li><Link to="login">Login</Link></li>
+            <li><Link to="product">Product</Link></li>
+            <li><Link to="login">Orders</Link></li>
           </ul>
         </nav>
       </header>
@@ -32,6 +40,15 @@ function App() {
         < Route element={<MainLayout />}>
           < Route path="/location/:id" element={< Location />} />
           < Route path="/contact" element={<h1>Contact</h1>} />
+        </Route>
+
+        {/* Protected Routes */}
+        < Route path="/login" element={< Login />}></Route>
+        
+        < Route element={ProtectedRoute}>
+
+          < Route path="/product" element={<h2>Product</h2> } />
+          < Route path="/orders" element={<h2>Orders</h2> } />
         </Route>
       </Routes>
 
